@@ -370,6 +370,10 @@ func (db *DB) NamedExec(query string, arg interface{}) (sql.Result, error) {
 	return db.sqlxdb[0].NamedExec(query, arg)
 }
 
+func (db *DB) Preparenamed(query string) (*sqlx.NamedStmt, error) {
+	return db.Preparenamed(query)
+}
+
 // Transaction
 func (db *DB) Begin() (*sql.Tx, error) {
 	return db.sqlxdb[0].Begin()
